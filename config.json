@@ -1,0 +1,30 @@
+ [
+    {
+      "id": "test_one",
+      "fullyQualifiedClassName": "org.sai.opsmon.check.OneReadinessCheck",
+      "description": "this is my test1",
+      "executionPhases": ["REGISTRATION", "FAILBACK", "FAILOVER"],
+      "enabled": true,
+      "outputChannels": ["FILE", "EVENT_QUEUE", "DATABASE"],
+      "failureSeverity": "HIGH"
+    },
+    {
+      "id": "test_two",
+      "fullyQualifiedClassName": "org.sai.opsmon.check.TwoReadinessCheck",
+      "description": "this is my test2",
+      "executionPhases": ["REGISTRATION", "FAILBACK", "FAILOVER"],
+      "enabled": true,
+      "outputChannels": ["FILE", "EVENT_QUEUE", "DATABASE"],
+
+      "failureSeverity": "HIGH"
+    },
+    {
+      "id": "test_three",
+      "fullyQualifiedClassName": "org.sai.opsmon.check.ThreeReadinessCheck",
+      "description": "this is my test3",
+      "executionPhases": ["REGISTRATION"],
+      "enabled": true,
+      "outputChannels": ["FILE", "EVENT_QUEUE", "DATABASE"],
+      "failureSeverity": "HIGH"
+    }
+  ]
