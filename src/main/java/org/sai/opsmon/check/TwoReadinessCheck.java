@@ -11,6 +11,7 @@ public class TwoReadinessCheck extends BaseReadinessCheck {
 
     @Override
     public ReadinessCheckResult performCheck(final ReadinessCheckExecutionContext executionContext) {
+        sleep(5);
         return new ReadinessCheckResult();
     }
 

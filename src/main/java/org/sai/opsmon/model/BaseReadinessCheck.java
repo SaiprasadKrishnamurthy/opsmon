@@ -30,4 +30,12 @@ public abstract class BaseReadinessCheck implements ReadinessCheck {
     public void registerOutputListeners(final List<ReadinessCheckOutputSubscriber> outputListeners) {
         outputSubscribers.addAll(outputListeners);
     }
+
+    protected void sleep(final int seconds) {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

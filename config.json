@@ -15,7 +15,6 @@
       "executionPhases": ["REGISTRATION", "FAILBACK", "FAILOVER"],
       "enabled": true,
       "outputChannels": ["FILE", "EVENT_QUEUE", "DATABASE"],
-
       "failureSeverity": "HIGH"
     },
     {
@@ -26,5 +25,23 @@
       "enabled": true,
       "outputChannels": ["FILE", "EVENT_QUEUE", "DATABASE"],
       "failureSeverity": "HIGH"
-    }
+    },
+   {
+     "id": "test_four",
+     "fullyQualifiedClassName": "org.sai.opsmon.check.FourReadinessCheck",
+     "description": "this is my test4",
+     "executionPhases": ["FAILOVER"],
+     "enabled": true,
+     "outputChannels": ["FILE", "EVENT_QUEUE", "DATABASE"],
+     "failureSeverity": "HIGH"
+   },
+   {
+     "id": "test_five",
+     "fullyQualifiedClassName": "org.sai.opsmon.check.FiveReadinessCheck",
+     "description": "this is my test4",
+     "executionPhases": ["FAILOVER"],
+     "enabled": true,
+     "outputChannels": ["FILE", "EVENT_QUEUE", "DATABASE"],
+     "failureSeverity": "HIGH"
+   }
   ]

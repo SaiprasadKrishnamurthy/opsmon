@@ -40,15 +40,16 @@ public class DefaultReadinessCheckFacade implements ReadinessCheckFacade {
         List<ReadinessCheckConfig> applicableTests = applicableTests(phaseType);
         executionContext.setTotalChecks(applicableTests.size());
 
-        applicableTests.forEach(applicableTest -> {
-            try {
-                ReadinessCheck readinessCheck = (ReadinessCheck) Class.forName(applicableTest.getFullyQualifiedClassName()).newInstance();
-                readinessCheck.registerOutputListeners(subscriber.isPresent() ? Arrays.asList(readinessCheckOutputSubscriber, subscriber.get()) : Arrays.asList(readinessCheckOutputSubscriber));
-                readinessCheck.check(applicableTest, executionContext);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+        applicableTests.parallelStream()
+                .forEach(applicableTest -> {
+                    try {
+                        ReadinessCheck readinessCheck = (ReadinessCheck) Class.forName(applicableTest.getFullyQualifiedClassName()).newInstance();
+                        readinessCheck.registerOutputListeners(subscriber.isPresent() ? Arrays.asList(readinessCheckOutputSubscriber, subscriber.get()) : Arrays.asList(readinessCheckOutputSubscriber));
+                        readinessCheck.check(applicableTest, executionContext);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
     }
 
     private List<ReadinessCheckConfig> applicableTests(final ReadinessCheckExecutionPhaseType phaseType) {

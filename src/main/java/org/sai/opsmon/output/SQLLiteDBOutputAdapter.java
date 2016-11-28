@@ -63,6 +63,8 @@ public class SQLLiteDBOutputAdapter implements OutputAdapter {
 
                 pstmt.executeUpdate();
 
+                System.out.println("Saved to database successfully");
+
             } catch (Exception e) {
                 e.printStackTrace();
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -75,7 +77,6 @@ public class SQLLiteDBOutputAdapter implements OutputAdapter {
                 } catch (SQLException ignored) {
                 }
             }
-            System.out.println("Opened database successfully");
         }
     }
 }

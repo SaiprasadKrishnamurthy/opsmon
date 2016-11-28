@@ -1,22 +1,22 @@
 package org.sai.opsmon.check;
 
 import org.sai.opsmon.model.BaseReadinessCheck;
-import org.sai.opsmon.model.ReadinessCheckResult;
 import org.sai.opsmon.model.ReadinessCheckExecutionContext;
+import org.sai.opsmon.model.ReadinessCheckResult;
 
 /**
  * Created by saipkri on 25/11/16.
  */
-public class OneReadinessCheck extends BaseReadinessCheck {
+public class FourReadinessCheck extends BaseReadinessCheck {
 
     @Override
     public ReadinessCheckResult performCheck(final ReadinessCheckExecutionContext executionContext) {
-        sleep(4);
+        sleep(5);
         return new ReadinessCheckResult();
     }
 
     @Override
     public String id() {
-        return "test_one";
+        return "test_four";
     }
 }
